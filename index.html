@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nightmare Generator: Escape Your Nightmare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Horror Text Adventure</p>
+        <h1>Nightmare Generator</h1>
+        <p class="subtitle">Escape Your Nightmare</p>
+        <p class="intro">
+          세 단어를 입력하면 게임은 그 단어의 의미를 해석해 하나의 악몽으로 엮습니다.
+          공포가 100이 되기 전에 5턴을 버티고, 무너지는 정신 속에서 탈출구를 찾으세요.
+        </p>
+      </div>
+    </section>
+
+    <section class="game-panel" aria-label="Playable nightmare game">
+      <header class="game-header">
+        <div>
+          <p class="section-kicker">Play</p>
+          <h2>Generate a Nightmare</h2>
+        </div>
+        <button id="restartBtn" class="ghost-button" type="button" hidden>Restart</button>
+      </header>
+
+      <div id="inputStage" class="input-stage">
+        <label>
+          <span>Word 1</span>
+          <input id="word1" maxlength="18" placeholder="예: 바다" autocomplete="off" />
+        </label>
+        <label>
+          <span>Word 2</span>
+          <input id="word2" maxlength="18" placeholder="예: 학교" autocomplete="off" />
+        </label>
+        <label>
+          <span>Word 3</span>
+          <input id="word3" maxlength="18" placeholder="예: 거울" autocomplete="off" />
+        </label>
+        <button id="generateBtn" class="primary-button" type="button">Generate Nightmare</button>
+      </div>
+
+      <div id="gameStage" class="game-stage" hidden>
+        <div id="storyBox" class="story-box">
+          <p id="storyText"></p>
+        </div>
+        <div id="choiceArea" class="choice-area" aria-label="choices"></div>
+      </div>
+
+      <footer class="status-bar">
+        <div class="meter-block">
+          <div class="meter-label"><span>Fear</span><strong id="fearValue">0</strong></div>
+          <div class="meter"><div id="fearFill" class="meter-fill fear"></div></div>
+        </div>
+        <div class="meter-block">
+          <div class="meter-label"><span>Sanity</span><strong id="sanityValue">100</strong></div>
+          <div class="meter"><div id="sanityFill" class="meter-fill sanity"></div></div>
+        </div>
+        <div class="turn-counter">
+          <span>Turn</span>
+          <strong id="turnValue">0 / 5</strong>
+        </div>
+      </footer>
+    </section>
+
+    <section class="info-grid">
+      <article>
+        <p class="section-kicker">How To Play</p>
+        <h2>짧은 플레이 방법</h2>
+        <p>
+          단어 3개를 입력하고 악몽을 생성하세요. 매 턴 세 선택지 중 하나를 고르면 Fear와
+          Sanity가 변합니다. Sanity가 낮아질수록 선택지 문구는 믿기 어려워지고, Fear가 100이
+          되면 악몽의 일부가 됩니다. 5턴을 살아남으면 조건에 따라 다른 엔딩이 열립니다.
+        </p>
+      </article>
+      <article>
+        <p class="section-kicker">Artist Statement</p>
+        <h2>아티스트 스테이트먼트</h2>
+        <p>
+          이 작품은 사용자가 직접 입력한 평범한 단어가 어떻게 낯선 공포의 구조로 바뀌는지
+          탐구하는 브라우저 기반 웹 게임입니다. 실제 AI API 대신 단어의 성격을 분류하고 사건,
+          장소, 위협, 선택 결과를 조합하는 생성 규칙을 사용했습니다. 플레이어는 자신이 제공한
+          소재로 만들어진 악몽을 읽고 선택하지만, 정신력이 떨어질수록 인터페이스 자체를 의심하게
+          됩니다. 이 게임에서 탈출은 정답을 고르는 일이 아니라, 무너지는 의미 속에서 아직 자신이
+          결정하고 있다고 믿는 행위입니다.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
